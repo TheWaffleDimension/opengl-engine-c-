@@ -1,0 +1,59 @@
+#ifndef _CORE_INPUT_H
+#define _CORE_INPUT_H
+
+#define MAX_KEYS    1024
+#define MAX_BUTTONS 32
+
+#include <GLFW/glfw3.h>
+#include "math.h"
+
+namespace Core { namespace Input {
+	class Mouse {
+		public:
+			static Mouse& getInstance();
+			inline float getX() const { return m_pos.x; }
+			inline float getY() const { return m_pos.y; }
+			inline Vec2 getPosition() { return m_pos; }
+			inline void setButtonState( unsigned int button, bool state ) {
+				m_buttons[ button ] = state;
+			}
+			inline bool pressed ( unsigned int button ) const {
+				return m_buttons[ button ];
+			}
+		private:
+			// Functions
+			Mouse() {
+				for (int i = 0; i < MAX_BUTTONS; ++i) {
+					m_buttons[i] = false;
+				}
+			}
+
+			// Vars
+			static Mouse m_instance;
+			bool   m_buttons[ MAX_BUTTONS ];
+			Vec2 m_pos;
+	};
+
+	class Keyboard {
+		public:
+			static Keyboard& getInstance();
+			inline void setKeyState( unsigned int key, bool state ) {
+				m_keys[ key ] = state;
+			}
+			inline bool pressed ( unsigned int key ) const {
+				return m_keys[ key ];
+			}
+		private:
+			// Functions
+			Keyboard() {
+				for ( int i = 0; i < MAX_KEYS; ++i )
+					m_keys[i] = false;
+			}
+
+			// Vars
+			static Keyboard m_instance;
+			bool m_keys[ MAX_KEYS ];
+	}; 
+} } 
+
+#endif // _CORE_INPUT_H
