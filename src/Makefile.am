@@ -35,7 +35,11 @@ sparky_engine_SOURCES = \
 	math.h \
 	mat4.cpp \
 	mat4.h \
-	fileutils.h
+	fileutils.h \
+	shader.cpp \
+	shader.h \
+	basic.vert \
+	basic.frag
 
 sparky_engine_LDFLAGS = 
 

@@ -101,7 +101,9 @@ CONFIG_CLEAN_FILES =
 CONFIG_CLEAN_VPATH_FILES =
 am__installdirs = "$(DESTDIR)$(bindir)"
 PROGRAMS = $(bin_PROGRAMS)
-am_sparky_engine_OBJECTS = main.$(OBJEXT) window.$(OBJEXT)
+am_sparky_engine_OBJECTS = main.$(OBJEXT) window.$(OBJEXT) \
+	input.$(OBJEXT) vec2.$(OBJEXT) vec3.$(OBJEXT) vec4.$(OBJEXT) \
+	mat4.$(OBJEXT) shader.$(OBJEXT)
 sparky_engine_OBJECTS = $(am_sparky_engine_OBJECTS)
 am__DEPENDENCIES_1 =
 sparky_engine_DEPENDENCIES = $(am__DEPENDENCIES_1) \
@@ -372,7 +374,23 @@ sparky_engine_SOURCES = \
 	main.cc \
 	glfw3.h \
 	window.cc \
-	window.h
+	window.h \
+	input.cpp \
+	input.h \
+	vec2.h \
+	vec2.cpp \
+	vec3.cpp \
+	vec3.h \
+	vec4.cpp \
+	vec4.h \
+	math.h \
+	mat4.cpp \
+	mat4.h \
+	fileutils.h \
+	shader.cpp \
+	shader.h \
+	basic.vert \
+	basic.frag
 
 sparky_engine_LDFLAGS = 
 sparky_engine_LDADD = \
@@ -384,7 +402,7 @@ sparky_engine_LDADD = \
 all: all-am
 
 .SUFFIXES:
-.SUFFIXES: .cc .lo .o .obj
+.SUFFIXES: .cc .cpp .lo .o .obj
 $(srcdir)/Makefile.in:  $(srcdir)/Makefile.am  $(am__configure_deps)
 	@for dep in $?; do \
 	  case '$(am__configure_deps)' in \
@@ -474,7 +492,13 @@ mostlyclean-compile:
 distclean-compile:
 	-rm -f *.tab.c
 
+include ./$(DEPDIR)/input.Po
 include ./$(DEPDIR)/main.Po
+include ./$(DEPDIR)/mat4.Po
+include ./$(DEPDIR)/shader.Po
+include ./$(DEPDIR)/vec2.Po
+include ./$(DEPDIR)/vec3.Po
+include ./$(DEPDIR)/vec4.Po
 include ./$(DEPDIR)/window.Po
 
 .cc.o:
@@ -492,6 +516,27 @@ include ./$(DEPDIR)/window.Po
 #	$(AM_V_CXX_no)$(CXXCOMPILE) -c -o $@ `$(CYGPATH_W) '$<'`
 
 .cc.lo:
+	$(AM_V_CXX)$(LTCXXCOMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ $<
+	$(AM_V_at)$(am__mv) $(DEPDIR)/$*.Tpo $(DEPDIR)/$*.Plo
+#	$(AM_V_CXX)source='$<' object='$@' libtool=yes \
+#	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
+#	$(AM_V_CXX_no)$(LTCXXCOMPILE) -c -o $@ $<
+
+.cpp.o:
+	$(AM_V_CXX)$(CXXCOMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ $<
+	$(AM_V_at)$(am__mv) $(DEPDIR)/$*.Tpo $(DEPDIR)/$*.Po
+#	$(AM_V_CXX)source='$<' object='$@' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
+#	$(AM_V_CXX_no)$(CXXCOMPILE) -c -o $@ $<
+
+.cpp.obj:
+	$(AM_V_CXX)$(CXXCOMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ `$(CYGPATH_W) '$<'`
+	$(AM_V_at)$(am__mv) $(DEPDIR)/$*.Tpo $(DEPDIR)/$*.Po
+#	$(AM_V_CXX)source='$<' object='$@' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
+#	$(AM_V_CXX_no)$(CXXCOMPILE) -c -o $@ `$(CYGPATH_W) '$<'`
+
+.cpp.lo:
 	$(AM_V_CXX)$(LTCXXCOMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ $<
 	$(AM_V_at)$(am__mv) $(DEPDIR)/$*.Tpo $(DEPDIR)/$*.Plo
 #	$(AM_V_CXX)source='$<' object='$@' libtool=yes \

@@ -18,21 +18,15 @@
  */
 
 #include "window.h"
+#include "shader.h"
 #include "input.h"
 #include "math.h"
-#include "fileutils.h"
 
 int main() {
 	using namespace Core;
 	using namespace Graphics;
 	using namespace Input;
 	using namespace Math;
-	using namespace Utils;
-
-	std::string file = read_file("test.txt");
-	std::cout << file << std::endl;
-	system("read -n1 -r -p \"Press any key to continue...\" key");
-	return 0;
 	
 	Window window("Some 3D Engine", 800, 600);
 	glClearColor(0.2f, 0.3f, 0.8f, 1.0f);
@@ -41,30 +35,11 @@ int main() {
 	glGenVertexArrays(1, &vao);
 	glBindVertexArray(vao);
 
-	Mat4 position = Mat4::translation(Vec3(2.0f, 3.0f, 4));
-	position *= Mat4::identity();
-
-	position.elements[12] = 2.0f;
-
-	Vec4 column = position.columns[3];
+	Shader shader("basic.vert", "basic.frag");
 
 	while (!window.closed()) {
 		window.clear();
-		if (Mouse::getInstance().pressed(GLFW_MOUSE_BUTTON_LEFT)) {
-			Mouse mouse = Mouse::getInstance();
-			Vec2 mousePos = Vec2(mouse.getX(), mouse.getY());
-			std::cout << mousePos << std::endl;
-		}
-#if 1
-		glBegin(GL_QUADS);
-		glVertex2f(-0.5f, -0.5f);
-		glVertex2f(-0.5f, 0.5f);
-		glVertex2f(0.5f, 0.5f);
-		glVertex2f(0.5f, -0.5f);
-		glEnd();
-#else
 		glDrawArrays(GL_ARRAY_BUFFER, 0, 6);
-#endif
 		window.update();
 	}
 		

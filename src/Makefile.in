@@ -103,7 +103,7 @@ am__installdirs = "$(DESTDIR)$(bindir)"
 PROGRAMS = $(bin_PROGRAMS)
 am_sparky_engine_OBJECTS = main.$(OBJEXT) window.$(OBJEXT) \
 	input.$(OBJEXT) vec2.$(OBJEXT) vec3.$(OBJEXT) vec4.$(OBJEXT) \
-	mat4.$(OBJEXT)
+	mat4.$(OBJEXT) shader.$(OBJEXT)
 sparky_engine_OBJECTS = $(am_sparky_engine_OBJECTS)
 am__DEPENDENCIES_1 =
 sparky_engine_DEPENDENCIES = $(am__DEPENDENCIES_1) \
@@ -386,7 +386,11 @@ sparky_engine_SOURCES = \
 	math.h \
 	mat4.cpp \
 	mat4.h \
-	fileutils.h
+	fileutils.h \
+	shader.cpp \
+	shader.h \
+	basic.vert \
+	basic.frag
 
 sparky_engine_LDFLAGS = 
 sparky_engine_LDADD = \
@@ -491,6 +495,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/input.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/main.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mat4.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/shader.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/vec2.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/vec3.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/vec4.Po@am__quote@

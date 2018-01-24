@@ -18,16 +18,29 @@
  */
 
 #include <string>
+#include <streambuf>
+#include <sstream>
 #include <cstring>
 #include <fstream>
-#include <streambuf>
-#include <iostream>
 #include <ios>
+#include <iostream>
 
 namespace Core { namespace Utils {
-	std::string read_file(const char* filepath) {
-		std::ifstream infile { filepath };
-		std::string file_contents { std::istreambuf_iterator<char>(infile), std::istreambuf_iterator<char>() };
-		return file_contents;
-	}
+	class FileUtils {
+	 public:
+		static std::string read_file(const char* filepath) {
+			std::string fp = filepath;
+			/*
+			std::ifstream infile { fp };
+			std::string file_contents { std::istreambuf_iterator<char>(infile), std::istreambuf_iterator<char>() };
+			return file_contents;
+		 	*/
+			std::ifstream t(fp);
+			std::stringstream buffer;
+			buffer << t.rdbuf();
+			std::string fileContents = buffer.str();
+			std::cout << fileContents << std::endl;
+			return fileContents
+		}
+ 	};
 } }

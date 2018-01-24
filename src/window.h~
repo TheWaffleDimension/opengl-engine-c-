@@ -25,10 +25,9 @@
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
 
-#include <input.h>
+#include "input.h"
 
-namespace Core {
-	 namespace Graphics {
+namespace Core { namespace Graphics {
 		class Window {
 		public:
 			Window(const char *name, int width, int height);

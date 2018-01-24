@@ -1,6 +1,6 @@
 /* -*- Mode: C; indent-tabs-mode: t; c-basic-offset: 4; tab-width: 4 -*-  */
 /*
- * window.h
+ * shader.h
  * Copyright (C) 2018 Mason Harris <thewaffledimension@gmail.com>
  *
  * sparky_engine is free software: you can redistribute it and/or modify it
@@ -17,43 +17,34 @@
  * with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef _WINDOW_H_
-#define _WINDOW_H_
+#ifndef _SHADER_H_
+#define _SHADER_H_
 
-#include <iostream>
-#define GLEW_STATIC
 #include <GL/glew.h>
-#include <GLFW/glfw3.h>
-
-#include "input.h"
+#include <vector>
+#include <iostream>
+#include "fileutils.h"
 
 namespace Core { namespace Graphics {
-		class Window {
-		public:
-			Window(const char *name, int width, int height);
-		 	~Window();
-		 	void update();
-		 	void clear() const;
-		 	bool closed() const;
+	class Shader {
+	public:
+		Shader(const char* vertPath, const char* fragPath);
+		~Shader();
 
-		 	inline int getWidth() const;
-		 	inline int getHeight() const;
-		protected:
-			
-		private:
-		 	// Functions
-			bool init();
-		 	static void onWindowResize(GLFWwindow *window, int width, int height);
-		 	static void onKeyChange(GLFWwindow *window, int key, int scancode, int action, int mods);
-		 	static void onMouseMove(GLFWwindow* window, double mx, double my);
-		 	static void onMouseChange(GLFWwindow* window, int button, int action, int mods);
+		void enable() const;
+		void disable() const;
+	protected:
 
-		 	// Vars
-			const char *m_title;
-		 	int m_width, m_height;
-		 	GLFWwindow *m_window;
-		};
+	private:
+		// Functions
+		GLuint load();
+
+		// Vars
+		const char* m_vertPath;
+		const char* m_fragPath;
+		GLuint m_shaderID;
+	};
 } }
 
-#endif // _WINDOW_H_
+#endif // _SHADER_H_
 

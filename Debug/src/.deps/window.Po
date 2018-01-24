@@ -110,7 +110,8 @@ window.o: \
  /usr/include/c++/7/bits/ostream.tcc /usr/include/c++/7/istream \
  /usr/include/c++/7/bits/istream.tcc /usr/include/GL/glew.h \
  /usr/include/GL/glu.h /usr/include/GL/gl.h \
- /usr/local/include/GLFW/glfw3.h
+ /usr/local/include/GLFW/glfw3.h \
+ /home/thewaffledimension/projects/c++/sparky_engine/src/input.h
 
 /usr/include/stdc-predef.h:
 
@@ -447,3 +448,5 @@ window.o: \
 /usr/include/GL/gl.h:
 
 /usr/local/include/GLFW/glfw3.h:
+
+/home/thewaffledimension/projects/c++/sparky_engine/src/input.h:

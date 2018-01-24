@@ -111,6 +111,18 @@ main.o: /home/thewaffledimension/projects/c++/sparky_engine/src/main.cc \
  /usr/include/GL/glu.h /usr/include/GL/gl.h \
  /usr/local/include/GLFW/glfw3.h \
  /home/thewaffledimension/projects/c++/sparky_engine/src/input.h \
+ /home/thewaffledimension/projects/c++/sparky_engine/src/shader.h \
+ /usr/include/c++/7/vector /usr/include/c++/7/bits/stl_construct.h \
+ /usr/include/c++/7/bits/stl_uninitialized.h \
+ /usr/include/c++/7/bits/stl_vector.h \
+ /usr/include/c++/7/bits/stl_bvector.h /usr/include/c++/7/bits/vector.tcc \
+ /home/thewaffledimension/projects/c++/sparky_engine/src/fileutils.h \
+ /usr/include/c++/7/sstream /usr/include/c++/7/bits/sstream.tcc \
+ /usr/include/c++/7/cstring /usr/include/string.h /usr/include/strings.h \
+ /usr/include/c++/7/fstream /usr/include/c++/7/bits/codecvt.h \
+ /usr/include/c++/7/x86_64-redhat-linux/bits/basic_file.h \
+ /usr/include/c++/7/x86_64-redhat-linux/bits/c++io.h \
+ /usr/include/c++/7/bits/fstream.tcc \
  /home/thewaffledimension/projects/c++/sparky_engine/src/math.h \
  /usr/include/c++/7/cmath /usr/include/math.h \
  /usr/include/bits/math-vector.h /usr/include/bits/libm-simd-decl-stubs.h \
@@ -124,13 +136,7 @@ main.o: /home/thewaffledimension/projects/c++/sparky_engine/src/main.cc \
  /home/thewaffledimension/projects/c++/sparky_engine/src/vec2.h \
  /home/thewaffledimension/projects/c++/sparky_engine/src/vec3.h \
  /home/thewaffledimension/projects/c++/sparky_engine/src/vec4.h \
- /home/thewaffledimension/projects/c++/sparky_engine/src/mat4.h \
- /home/thewaffledimension/projects/c++/sparky_engine/src/fileutils.h \
- /usr/include/c++/7/cstring /usr/include/string.h /usr/include/strings.h \
- /usr/include/c++/7/fstream /usr/include/c++/7/bits/codecvt.h \
- /usr/include/c++/7/x86_64-redhat-linux/bits/basic_file.h \
- /usr/include/c++/7/x86_64-redhat-linux/bits/c++io.h \
- /usr/include/c++/7/bits/fstream.tcc
+ /home/thewaffledimension/projects/c++/sparky_engine/src/mat4.h
 
 /usr/include/stdc-predef.h:
 
@@ -470,6 +476,42 @@ main.o: /home/thewaffledimension/projects/c++/sparky_engine/src/main.cc \
 
 /home/thewaffledimension/projects/c++/sparky_engine/src/input.h:
 
+/home/thewaffledimension/projects/c++/sparky_engine/src/shader.h:
+
+/usr/include/c++/7/vector:
+
+/usr/include/c++/7/bits/stl_construct.h:
+
+/usr/include/c++/7/bits/stl_uninitialized.h:
+
+/usr/include/c++/7/bits/stl_vector.h:
+
+/usr/include/c++/7/bits/stl_bvector.h:
+
+/usr/include/c++/7/bits/vector.tcc:
+
+/home/thewaffledimension/projects/c++/sparky_engine/src/fileutils.h:
+
+/usr/include/c++/7/sstream:
+
+/usr/include/c++/7/bits/sstream.tcc:
+
+/usr/include/c++/7/cstring:
+
+/usr/include/string.h:
+
+/usr/include/strings.h:
+
+/usr/include/c++/7/fstream:
+
+/usr/include/c++/7/bits/codecvt.h:
+
+/usr/include/c++/7/x86_64-redhat-linux/bits/basic_file.h:
+
+/usr/include/c++/7/x86_64-redhat-linux/bits/c++io.h:
+
+/usr/include/c++/7/bits/fstream.tcc:
+
 /home/thewaffledimension/projects/c++/sparky_engine/src/math.h:
 
 /usr/include/c++/7/cmath:
@@ -511,21 +553,3 @@ main.o: /home/thewaffledimension/projects/c++/sparky_engine/src/main.cc \
 /home/thewaffledimension/projects/c++/sparky_engine/src/vec4.h:
 
 /home/thewaffledimension/projects/c++/sparky_engine/src/mat4.h:
-
-/home/thewaffledimension/projects/c++/sparky_engine/src/fileutils.h:
-
-/usr/include/c++/7/cstring:
-
-/usr/include/string.h:
-
-/usr/include/strings.h:
-
-/usr/include/c++/7/fstream:
-
-/usr/include/c++/7/bits/codecvt.h:
-
-/usr/include/c++/7/x86_64-redhat-linux/bits/basic_file.h:
-
-/usr/include/c++/7/x86_64-redhat-linux/bits/c++io.h:
-
-/usr/include/c++/7/bits/fstream.tcc:
