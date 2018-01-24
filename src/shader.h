@@ -21,6 +21,7 @@
 #define _SHADER_H_
 
 #include <GL/glew.h>
+#include <string>
 #include <vector>
 #include <iostream>
 #include "fileutils.h"
