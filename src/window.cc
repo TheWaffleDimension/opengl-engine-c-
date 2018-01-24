@@ -38,6 +38,14 @@ namespace Core { namespace Graphics {
 			std::cout << "Failed to initialize GLFW!" << std::endl;
 			return false;
 		}
+
+		glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
+		glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
+		glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
+		glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+
+		// 4x antialiasing
+    	glfwWindowHint(GLFW_SAMPLES, 4);
 		
 		m_window = glfwCreateWindow(m_width, m_height, m_title, NULL, NULL);
 		if (!m_window) {

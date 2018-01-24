@@ -35,11 +35,11 @@ namespace Core { namespace Graphics {
 		GLuint vertex = glCreateShader(GL_VERTEX_SHADER);
 		GLuint fragment = glCreateShader(GL_FRAGMENT_SHADER);
 
-		std::string fileContents = Utils::FileUtils::read_file(m_vertPath);
-		const char* vertSource = fileContents.c_str();
+		std::string vertContents = Utils::FileUtils::read_file(m_vertPath);
+		const char* vertSource = vertContents.c_str();
 		std::cout << "Vertex Shader: " << std::endl << vertSource << std::endl;
-		fileContents = Utils::FileUtils::read_file(m_fragPath);
-		const char* fragSource = fileContents.c_str();
+		std::string fragContents = Utils::FileUtils::read_file(m_fragPath);
+		const char* fragSource = fragContents.c_str();
 		std::cout << "Fragment Shader: " << std::endl << fragSource << std::endl;
 
 		// VERTEX SHADER //

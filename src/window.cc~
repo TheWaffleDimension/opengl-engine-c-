@@ -38,6 +38,11 @@ namespace Core { namespace Graphics {
 			std::cout << "Failed to initialize GLFW!" << std::endl;
 			return false;
 		}
+
+		glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
+		glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
+		glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
+		glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 		
 		m_window = glfwCreateWindow(m_width, m_height, m_title, NULL, NULL);
 		if (!m_window) {
@@ -90,8 +95,8 @@ namespace Core { namespace Graphics {
 
 	void Window::onMouseMove(GLFWwindow* window, double mx, double my) {
 		Input::Mouse& mouse = Input::Mouse::getInstance();
-		mouse.m_pos.x = static_cast<float>(mx);
-		mouse.m_pos.y = static_cast<float>(my);
+		mouse.setX(mx);
+		mouse.setY(my);
 	}
 
 	void Window::onMouseChange(GLFWwindow* window, int button, int action, int mods) {
